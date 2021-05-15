@@ -1,0 +1,55 @@
+.containerFluid {
+  width: calc(100% - 200px);
+  display: flex;
+  justify-content: center;
+  padding: 30px 100px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 52px;
+  line-height: 63px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  color: #0094ff;
+}
+
+.container ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container ul li {
+  list-style-type: none;
+  margin-left: 20px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 48px;
+  border-bottom: 2px solid transparent;
+}
+
+.container ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container ul li:hover {
+  border-bottom: 2px solid #0094ff;
+  color: #0094ff;
+  cursor: pointer;
+}
