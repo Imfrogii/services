@@ -5,17 +5,19 @@ import InputWithLabel from "../../components/inputWithLabel";
 import { routes } from "../../constants/routes";
 import styles from './about.module.css'
 
-export default function About({ minAbout, setMinAbout, bigAbout, setBigAbout, setFiles, sendEmail }) {
+export default function About({ minAbout, setMinAbout, bigAbout, setBigAbout, setFiles }) {
     const fileInput = useRef();
     const history = useHistory();
     const [enabledFiles, setEnabledFiles] = useState([]);
     const [error, setError] = useState(false);
     const sendData = (e) => {
         e.preventDefault();
-        console.log(minAbout, bigAbout, fileInput.current.files);
-        console.log(error);
         // sendEmail(e);
-        history.push(routes.contact);
+        if (minAbout && bigAbout) {
+            history.push(routes.contact);
+        } else {
+            setError(true);
+        }
     }
     const handleImageChange = (e) => {
         console.log(e.target.files);
