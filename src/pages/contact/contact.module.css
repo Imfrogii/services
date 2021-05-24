@@ -84,6 +84,15 @@
   border-radius: 10px;
 }
 
+.buttons{
+  display: flex;
+  align-items: center;
+  width: 55%;
+  margin-left: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
 .button {
   background: #bebebe;
   border-radius: 25px;
@@ -98,4 +107,18 @@
   margin-left: auto;
   border: none;
   cursor: pointer;
+}
+
+.buttonBack {
+  border: none;
+  background-color: transparent;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 41px;
+  border-bottom: 2px solid #818181;
+  cursor: pointer;
+  color: #818181;
+  /* padding: 10px; */
 }

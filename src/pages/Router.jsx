@@ -17,6 +17,7 @@ export default function Router() {
     const [tel, setTel] = useState('');
     const [address, setAddress] = useState('');
     const history = useHistory();
+    console.log('ROUTER');
 
     const [files, setFiles] = useState(null);
     const sendEmail = () => {

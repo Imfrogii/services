@@ -29,6 +29,8 @@ export default function About({ minAbout, setMinAbout, bigAbout, setBigAbout, se
         }
     }, [minAbout, bigAbout])
 
+
+    console.log('ABOUT PAGE');
     return (
         <>
             <Header />
@@ -47,9 +49,14 @@ export default function About({ minAbout, setMinAbout, bigAbout, setBigAbout, se
                             <input type="file" onChange={handleImageChange} name='files' id='files' multiple ref={fileInput} />
                         </div>
                     </div>
-                    <button type='submit' className={styles.button}
-                        disabled={error}
-                        onClick={sendData}>Отправить</button>
+                    <div className={styles.buttons}>
+                        <Link to={routes.home}>
+                            <button type='button' className={styles.buttonBack}>Назад</button>
+                        </Link>
+                        <button type='submit' className={styles.button}
+                            disabled={error}
+                            onClick={sendData}>Отправить</button>
+                    </div>
                 </form>
             </div>
         </>
