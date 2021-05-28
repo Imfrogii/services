@@ -35,6 +35,7 @@
 .container ul li {
   list-style-type: none;
   margin-left: 20px;
+  margin-top: 10px;
   font-family: Nunito;
   font-style: normal;
   font-weight: normal;
@@ -52,4 +53,40 @@
   border-bottom: 2px solid #0094ff;
   color: #0094ff;
   cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .containerFluid {
+    padding: 30px 50px;
+    width: calc(100% - 100px);
+  }
+}
+
+@media (max-width: 700px) {
+  .containerFluid{
+    padding: 30px 50px 0 50px;
+  }
+  .container ul li {
+    font-size: 22px;
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+  .logo {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 550px) {
+  .containerFluid{
+    padding: 30px 20px 0 20px;
+    width: calc(100% - 40px);
+  }
+  .container ul li {
+    font-size: 16px;
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+  .logo {
+    font-size: 26px;
+  }
 }

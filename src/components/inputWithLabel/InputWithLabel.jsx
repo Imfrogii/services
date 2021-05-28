@@ -17,11 +17,11 @@ export default function InputWithLabel({ value, onChange, id, isTextArea, labelT
     }
     return (
         <div className={styles.inputWithLabel}>
-            <label htmlFor={id} className={error ? styles.erorredLabel : styles.label}>{labelText}</label>
+            <label htmlFor={id} className={`${styles.label} ${error ? styles.erorredLabel : ''} `}>{labelText}</label>
             {isTextArea ? <textarea type="text" id={id} value={value} onChange={(e) => handleChange(e.target.value)} className={error ? styles.errored : styles.input} /> :
                 <input type={type ? type : "text"} id={id} value={value} onChange={(e) => handleChange(e.target.value)} className={error ? styles.errored : styles.input} />
             }
-            {error ? <span className={styles.erorredLabel}>{error}</span> : null}
+            {error ? <span className={styles.error}>{error}</span> : null}
         </div>
     )
 };

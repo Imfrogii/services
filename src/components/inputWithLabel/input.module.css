@@ -20,7 +20,13 @@
 }
 
 .inputWithLabel .erorredLabel {
+  /* margin-top: 5px; */
   color: #ff4040;
+}
+.inputWithLabel .error{
+  margin-top: 5px;
+  color: #ff4040;
+
 }
 
 .inputWithLabel input,
@@ -44,4 +50,49 @@
   height: 250px;
   resize: none;
   font-size: 20px;
+}
+
+@media (max-width: 950px) {
+  .inputWithLabel label {
+    font-size: 25px;
+    line-height: 43px;
+  }
+  .inputWithLabel input,
+  .inputWithLabel textarea {
+    font-size: 20px;
+  }
+  .inputWithLabel textarea {
+    height: 200px;
+  }
+}
+
+@media (max-width: 700px) {
+  .inputWithLabel label {
+    font-size: 20px;
+    line-height: 35px;
+  }
+  .inputWithLabel input,
+  .inputWithLabel textarea {
+    font-size: 17px;
+    padding: 7px 10px;
+  }
+  .inputWithLabel .error{
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 550px) {
+  .inputWithLabel label {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .inputWithLabel input,
+  .inputWithLabel textarea {
+    font-size: 14px;
+    border-width: 2px;
+    border-radius: 15px;
+  }
+  .inputWithLabel .error{
+    font-size: 13px;
+  }
 }

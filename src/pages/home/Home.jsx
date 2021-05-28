@@ -12,7 +12,10 @@ export default function Home(params) {
             <div className={styles.containerFluid}>
                 <div className={styles.container}>
                     <h1 className={styles.mainInfo}>
-                        Подбор проверенных <span className={styles.labeled} data-tooltip={"Мы отбираем частных мастеров, с которыми сотрудничаем. При добавлении мастеров в нашу базу мы изучаем их опыт, примеры работ, профиль и другие критерии, чтобы оставить только качественных мастеров."}>?</span> мастеров в сфере ремонтных бытовых услуг
+                        <div className={styles.relative}>Подбор проверенных
+                             <span className={styles.labeled} data-tooltip={"Мы отбираем частных мастеров, с которыми сотрудничаем. При добавлении мастеров в нашу базу мы изучаем их опыт, примеры работ, профиль и другие критерии, чтобы оставить только качественных мастеров."}>?</span> 
+                            </div>
+                             мастеров в сфере ремонтных бытовых услуг
                     </h1>
                     <span className={styles.about}>
                         Оставьте заявку всего за 1 минуту и <span className={styles.labeledText} data-tooltip={

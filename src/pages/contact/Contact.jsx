@@ -37,7 +37,7 @@ export default function Contact({ name, setName, tel, setTel, address, setAddres
                     </div>
 
                     <div className={styles.buttons}>
-                        <Link to={routes.home}>
+                        <Link to={routes.about}>
                             <button type='button' className={styles.buttonBack}>Назад</button>
                         </Link>
                         <button type='button' className={styles.button} onClick={sendContacts}
