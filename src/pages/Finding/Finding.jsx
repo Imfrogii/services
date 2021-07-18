@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useHistory } from "react-router-dom";
 import Header from "../../components/header"
 import { routes } from "../../constants/routes";
@@ -12,6 +13,9 @@ export default function Finding() {
 
     return (
         <>
+            <Helmet>
+                <title>Ommy - Поиск мастера</title>
+            </Helmet>
             <Header />
             <div className={styles.containerFluid}>
                 <div className={styles.container}>

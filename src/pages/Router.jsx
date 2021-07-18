@@ -20,12 +20,10 @@ export default function Router() {
     console.log('ROUTER');
 
     const [files, setFiles] = useState(null);
-    const sendEmail = () => {
-        console.log(minAbout && bigAbout && name && tel && address);
-        console.log(minAbout, bigAbout);
+    const sendEmail = async() => {
 
         if (minAbout && bigAbout && name && tel && address) {
-            fetch('php/form.php', { // URL
+            await fetch('http://api.ommy.by/', { // URL
                 body: JSON.stringify({
                     title: minAbout,
                     name,
@@ -34,14 +32,10 @@ export default function Router() {
                     description: bigAbout,
                     agreement: true,
                 }), // data you send.
-                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
                 headers: {
                     'content-type': 'application/json'
                 },
                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                mode: 'cors', // no-cors, cors, *same-origin
-                redirect: 'follow', // *manual, follow, error
-                referrer: 'no-referrer', // *client, no-referrer
             })
                 .then(function (response) {
                     // manipulate response object

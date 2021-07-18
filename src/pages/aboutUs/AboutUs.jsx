@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Header from "../../components/header"
 import { routes } from "../../constants/routes";
@@ -21,6 +22,11 @@ export default function AboutUs() {
     }]
     return (
         <>
+            <Helmet>
+                <title>Ommy - Условия, Цены, Мастера</title>
+                <meta name="robots" content="index,follow" />
+                <meta name="description" content="Сервис поиска мастеров в сфере бытовых и ремонтных услуг. Найди проверенного частного мастера всего за 1 минуту и сэкономь до 40%. Выполнение заказа с нуля и под ключ" />
+            </Helmet>
             <Header />
             <div className={styles.containerFluid}>
                 <div className={styles.container}>

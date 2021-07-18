@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useHistory } from "react-router-dom";
 import Header from "../../components/header"
 import InputWithLabel from "../../components/inputWithLabel";
@@ -9,13 +10,12 @@ export default function Contact({ name, setName, tel, setTel, address, setAddres
     const [checked, setChecked] = useState(false);
     const [error, setError] = useState(false);
     const sendContacts = () => {
-        if (name && tel && address) {
+        if (name && tel && address && checked) {
             sendEmail();
         } else {
             setError(true);
         }
     }
-    console.log('CONTACT PAGE');
     useEffect(() => {
         if (name && tel && address) {
             setError(false)
@@ -23,6 +23,9 @@ export default function Contact({ name, setName, tel, setTel, address, setAddres
     }, [name, tel, address])
     return (
         <>
+        <Helmet>
+                <title>Ommy - Оформление заявки</title>
+            </Helmet>
             <div className={styles.containerFluid}>
                 <div className={styles.container}>
                     <h1 className={styles.namePage}>
@@ -35,13 +38,12 @@ export default function Contact({ name, setName, tel, setTel, address, setAddres
                         <input type="checkbox" id='politics' onChange={() => setChecked(prev => !prev)} value={checked} />
                         <label htmlFor="politics">Я принимаю политику кофиденциальности и согласен на передачу моих контактов третьему лицу (мастеру) для связи со мной.</label>
                     </div>
-
+                    {error && <span style={{color: 'red', fontSize: 22, margin: '20px auto 0 auto'}}>Заполните поля</span>}
                     <div className={styles.buttons}>
                         <Link to={routes.about}>
                             <button type='button' className={styles.buttonBack}>Назад</button>
                         </Link>
                         <button type='button' className={styles.button} onClick={sendContacts}
-                            disabled={!checked || error}
                         >Отправить</button>
                     </div>
                 </div>

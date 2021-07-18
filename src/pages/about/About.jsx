@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useHistory } from "react-router-dom";
 import Header from "../../components/header"
 import InputWithLabel from "../../components/inputWithLabel";
@@ -30,10 +31,12 @@ export default function About({ minAbout, setMinAbout, bigAbout, setBigAbout, se
     }, [minAbout, bigAbout])
 
 
-    console.log('ABOUT PAGE');
     return (
         <>
             <Header />
+            <Helmet>
+                <title>Ommy - Оформление заявки</title>
+            </Helmet>
             <div className={styles.containerFluid}>
                 <form encType="multipart/form-data" method="post" className={styles.container} onSubmit={sendData}>
                     <InputWithLabel val={minAbout} onChange={setMinAbout} id={'min_about'} labelText={'В чем вам нужна помощь?'} setAllError={setError} />
@@ -49,12 +52,12 @@ export default function About({ minAbout, setMinAbout, bigAbout, setBigAbout, se
                             <input type="file" onChange={handleImageChange} name='files' id='files' multiple ref={fileInput} />
                         </div>
                     </div>
+                    {error && <span style={{ color: 'red', fontSize: 22 }}>Заполните поля</span>}
                     <div className={styles.buttons}>
                         <Link to={routes.home}>
                             <button type='button' className={styles.buttonBack}>Назад</button>
                         </Link>
                         <button type='submit' className={styles.button}
-                            disabled={error}
                             onClick={sendData}>Отправить</button>
                     </div>
                 </form>
