@@ -46,7 +46,7 @@ export default function About({ minAbout, setMinAbout, bigAbout, setBigAbout, se
                         <div className={styles.files}>
                             <label htmlFor="files" className={styles.input_file}>+</label>
                             {enabledFiles.map(img => (
-                                <div className={styles.input_file}><img src={img} alt='about' /></div>
+                                <div  key={img} className={styles.input_file}><img src={img} alt='about' /></div>
                             ))
                             }
                             <input type="file" onChange={handleImageChange} name='files' id='files' multiple ref={fileInput} />
