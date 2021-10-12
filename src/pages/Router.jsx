@@ -7,6 +7,7 @@ import Home from "./home";
 import Contact from "./contact";
 import AboutUs from "./aboutUs";
 import Finding from "./Finding";
+import Politics from "./politics/Politics";
 // init("user_6jARMg7P8wTNLTtJh1WLZ");
 
 export default function Router() {
@@ -29,9 +30,9 @@ export default function Router() {
       data.append("address", address);
       data.append("description", bigAbout);
       if (files) {
-        Array.from(files).forEach(file => {
+        Array.from(files).forEach((file) => {
           data.append("images", file);
-        })
+        });
       }
       await fetch("https://ommy.by/api/order/", {
         // URL
@@ -64,6 +65,9 @@ export default function Router() {
           setBigAbout={setBigAbout}
           setFiles={setFiles}
         />
+      </Route>
+      <Route path={routes.politics} exact>
+        <Politics />
       </Route>
       <Route path={routes.contact} exact>
         <Contact
