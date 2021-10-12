@@ -67,7 +67,7 @@ export default function About({
             isTextArea={true}
           />
           <div className={styles.inputWithLabel}>
-            <label htmlFor="files">Добавьте видео или фото</label>
+            <label htmlFor="files">Добавьте фото</label>
             <div className={styles.files}>
               <label htmlFor="files" className={styles.input_file}>
                 +

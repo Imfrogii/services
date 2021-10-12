@@ -25,6 +25,7 @@ export default function Finding() {
                         <div className={styles.circle}></div>
                         <div className={styles.circle}></div>
                     </div>
+                    <h3 className={styles.find_spec}>Мы уже ищем специалиста, мастер скоро позвонит вам. <br />Обычно это занимает 15 минут.</h3>
                     <Link to={routes.home}>
                         <button type='button' className={styles.button}>На главную</button>
                     </Link>
