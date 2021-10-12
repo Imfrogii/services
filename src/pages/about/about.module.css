@@ -2,7 +2,7 @@
   width: calc(100% - 200px);
   display: flex;
   justify-content: center;
-  padding: 30px 100px;
+  padding: 0px 100px 30px 100px;
 }
 
 .container {
@@ -20,12 +20,12 @@
 }
 
 .inputWithLabel label {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   margin-top: 20px;
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 20px;
   line-height: 49px;
 }
 
@@ -40,34 +40,34 @@
 
 .inputWithLabel input {
   width: 100%;
-  padding: 10px 20px;
-  font-size: 25px;
+  padding: 10px 10px;
+  font-size: 16px;
 }
 
 .inputWithLabel textarea {
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 10px;
   height: 250px;
   resize: none;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .inputWithLabel .input_file {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   /* padding: 2px; */
   background: #ffffff;
-  border: 3px solid #0094ff;
+  border: 2px solid #0094ff;
   box-sizing: border-box;
-  border-radius: 25px;
+  border-radius: 10px;
   color: #0094ff;
   font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
-  font-size: 70px;
+  font-size: 40px;
   line-height: 85px;
   cursor: pointer;
   margin-right: 5px;
@@ -108,11 +108,11 @@
   font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
-  font-size: 28px;
-  line-height: 34px;
+  font-size: 20px;
+  line-height: 20px;
 
   color: #ffffff;
-  padding: 20px 80px;
+  padding: 16px 30px;
   margin-left: auto;
   border: none;
   cursor: pointer;
@@ -124,8 +124,8 @@
   font-family: Nunito;
   font-style: normal;
   font-weight: normal;
-  font-size: 30px;
-  line-height: 41px;
+  font-size: 20px;
+  line-height: 20px;
   border-bottom: 2px solid #818181;
   cursor: pointer;
   color: #818181;
@@ -146,10 +146,10 @@
   .containerFluid {
     height: auto;
   }
-  .inputWithLabel label {
+  /* .inputWithLabel label {
     font-size: 25px;
     line-height: 43px;
-  }
+  } */
 }
 
 @media (max-width: 700px) {

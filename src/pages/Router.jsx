@@ -28,12 +28,12 @@ export default function Router() {
       data.append("phone_number", tel);
       data.append("address", address);
       data.append("description", bigAbout);
-    //   if (files) {
-    //     console.log(files);
-    //     data.append("image", files[0]);
-    //   }
-      console.log(data);
-      await fetch("https://api.ommy.by/api/order", {
+      if (files) {
+        Array.from(files).forEach(file => {
+          data.append("images", file);
+        })
+      }
+      await fetch("https://ommy.by/api/order/", {
         // URL
         body: data, // data you send.
         // headers: {

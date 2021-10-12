@@ -23,6 +23,7 @@ export default function About({ minAbout, setMinAbout, bigAbout, setBigAbout, se
     const handleImageChange = (e) => {
         console.log(e.target.files);
         setEnabledFiles(prev => [...prev, ...Object.values(e.target.files).map(file => URL.createObjectURL(file))]);
+        setFiles(e.target.files)
     }
     useEffect(() => {
         if (minAbout && bigAbout) {
