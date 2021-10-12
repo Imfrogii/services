@@ -33,7 +33,7 @@ export default function Router() {
     //     data.append("image", files[0]);
     //   }
       console.log(data);
-      await fetch("http://161.35.221.120:1337/api/order/", {
+      await fetch("https://api.ommy.by/api/order", {
         // URL
         body: data, // data you send.
         // headers: {

@@ -58,7 +58,7 @@ export default function About({ minAbout, setMinAbout, bigAbout, setBigAbout, se
                             <button type='button' className={styles.buttonBack}>Назад</button>
                         </Link>
                         <button type='submit' className={styles.button}
-                            onClick={sendData}>Отправить</button>
+                            onClick={sendData}>Далее</button>
                     </div>
                 </form>
             </div>

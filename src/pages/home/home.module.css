@@ -154,12 +154,24 @@
   margin: 0 10px 20px 10px;
 }
 
+.spread {
+  padding-top: 22px;
+  margin: 25px 5px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 34px;
+  list-style-type: none;
+}
+
 @media (max-width: 1200px) {
   .containerFluid {
     padding: 30px 50px;
     width: calc(100% - 100px);
   }
-  .mainInfo, .about_services h3 {
+  .mainInfo,
+  .about_services h3 {
     font-size: 53px;
     line-height: 69px;
   }
@@ -173,7 +185,8 @@
   .containerFluid {
     height: auto;
   }
-  .mainInfo, .about_services h3 {
+  .mainInfo,
+  .about_services h3 {
     font-size: 48px;
     line-height: 60px;
   }
@@ -181,7 +194,8 @@
     font-size: 25px;
     line-height: 37px;
   }
-  .button, .service{
+  .button,
+  .service {
     padding: 20px 45px;
     font-size: 24px;
     line-height: 30px;
@@ -189,7 +203,8 @@
 }
 
 @media (max-width: 700px) {
-  .mainInfo, .about_services h3 {
+  .mainInfo,
+  .about_services h3 {
     font-size: 35px;
     line-height: 45px;
   }
@@ -204,7 +219,8 @@
     font-size: 23px;
     line-height: 33px;
   }
-  .button, .service{
+  .button,
+  .service {
     padding: 15px 40px;
     font-size: 20px;
     line-height: 25px;
@@ -217,7 +233,8 @@
     width: calc(100% - 40px);
     margin-top: 0;
   }
-  .mainInfo, .about_services h3 {
+  .mainInfo,
+  .about_services h3 {
     font-size: 25px;
     line-height: 30px;
   }
@@ -236,12 +253,13 @@
   .labeledText::after {
     width: 150px;
   }
-  .button, .service{
+  .button,
+  .service {
     padding: 10px 30px;
     font-size: 16px;
     line-height: 20px;
   }
-  .service{
+  .service {
     margin: 0 5px 10px 5px;
   }
 }
