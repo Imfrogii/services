@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Header from "../../components/header";
 import { routes } from "../../constants/routes";
 import styles from "./politics.module.css";
@@ -450,10 +450,9 @@ export default function Politics() {
 
           <p>
             9.4. Действующая Политика конфиденциальности размещена на странице
-            по адресу https://ommy.by/politika
+            по адресу <NavLink to='/politics'>ommy.by/politics</NavLink>
           </p>
 
-          <p>г. Минск, ООО "Холи Холдинг" УПН 193431983</p>
         </div>
       </div>
     </>

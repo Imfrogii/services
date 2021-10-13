@@ -1,24 +1,23 @@
+import { observer } from "mobx-react";
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useHistory } from "react-router-dom";
 import Header from "../../components/header";
 import InputWithLabel from "../../components/inputWithLabel";
 import { routes } from "../../constants/routes";
+import RequestStore from "../../store/RequestStore";
 import styles from "./about.module.css";
 
-export default function About({
-  minAbout,
-  setMinAbout,
-  bigAbout,
-  setBigAbout,
-  setFiles,
-}) {
+// function About() {
+const About = observer(() => {
   const fileInput = useRef();
   const history = useHistory();
   const [enabledFiles, setEnabledFiles] = useState([]);
   const [error, setError] = useState(false);
+  const { request } = RequestStore;
+  const ref = useRef();
   const sendData = () => {
-    if (minAbout && bigAbout) {
+    if (request.minAbout && request.bigAbout) {
       history.push(routes.contact);
     } else {
       setError(true);
@@ -30,13 +29,17 @@ export default function About({
       ...prev,
       ...Object.values(e.target.files).map((file) => URL.createObjectURL(file)),
     ]);
-    setFiles(e.target.files);
+    request.files = e.target.files;
   };
   useEffect(() => {
-    if (minAbout && bigAbout) {
+    ref.current = true;
+  }, []);
+
+  useEffect(() => {
+    if (request.minAbout && request.bigAbout) {
       setError(false);
     }
-  }, [minAbout, bigAbout]);
+  }, [request.minAbout && request.bigAbout]);
 
   return (
     <>
@@ -51,16 +54,17 @@ export default function About({
           className={styles.container}
           onSubmit={sendData}
         >
+          {console.log(123, request.minAbout, 123)}
           <InputWithLabel
-            val={minAbout}
-            onChange={setMinAbout}
+            value={request.minAbout}
+            onChange={(val) => (request.minAbout = val)}
             id={"min_about"}
             labelText={"В чем вам нужна помощь? *"}
             setAllError={setError}
           />
           <InputWithLabel
-            val={bigAbout}
-            onChange={setBigAbout}
+            value={request.bigAbout}
+            onChange={(val) => (request.bigAbout = val)}
             id={"big_about"}
             labelText={"Опишите задачу подробнее *"}
             setAllError={setError}
@@ -104,4 +108,6 @@ export default function About({
       </div>
     </>
   );
-}
+});
+
+export default About;

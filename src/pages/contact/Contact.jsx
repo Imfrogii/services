@@ -1,34 +1,38 @@
+import { observer } from "mobx-react";
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import Header from "../../components/header";
 import InputWithLabel from "../../components/inputWithLabel";
 import { routes } from "../../constants/routes";
+import RequestStore from "../../store/RequestStore";
 import styles from "./contact.module.css";
 
-export default function Contact({
-  name,
-  setName,
-  tel,
-  setTel,
-  address,
-  setAddress,
-  sendEmail,
-}) {
+// export default function Contact() {
+const Contact = observer(() => {
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState(false);
-  const sendContacts = () => {
-    if (name && tel && address && checked) {
-      sendEmail();
+  const ref = useRef();
+  const { request, startSearch } = RequestStore;
+  const history = useHistory();
+
+  const sendContacts = async () => {
+    if (request.name && request.tel && request.address && checked) {
+      await startSearch();
+      history.push(routes.start_search);
     } else {
       setError(true);
     }
   };
   useEffect(() => {
-    if (name && tel && address) {
+    if (request.name && request.tel && request.address && checked) {
       setError(false);
     }
-  }, [name, tel, address]);
+  }, [request, checked]);
+
+  useEffect(() => {
+    ref.current = true;
+  }, []);
   return (
     <>
       <Helmet>
@@ -38,23 +42,23 @@ export default function Contact({
         <div className={styles.container}>
           <h1 className={styles.namePage}>Контакты</h1>
           <InputWithLabel
-            val={name}
-            onChange={setName}
+            value={request.name}
+            onChange={(val) => (request.name = val)}
             id={"name"}
             labelText={"Представьтесь, пожалуйста *"}
             setAllError={setError}
           />
           <InputWithLabel
-            val={tel}
-            onChange={setTel}
+            value={request.tel}
+            onChange={(val) => (request.tel = val)}
             id={"mobile"}
             labelText={"Ваш номер телефона *"}
             setAllError={setError}
             type={"tel"}
           />
           <InputWithLabel
-            val={address}
-            onChange={setAddress}
+            value={request.address}
+            onChange={(val) => (request.address = val)}
             id={"address"}
             labelText={"Ваш адрес *"}
             setAllError={setError}
@@ -67,9 +71,10 @@ export default function Contact({
               value={checked}
             />
             <label htmlFor="politics">
-              Я принимаю <NavLink to='/politics'>политику кофиденциальности</NavLink>{' '}
-               и согласен на передачу моих контактов третьему
-              лицу (мастеру) для связи со мной.
+              Я принимаю{" "}
+              <NavLink to="/politics">политику кофиденциальности</NavLink> и
+              согласен на передачу моих контактов третьему лицу (мастеру) для
+              связи со мной.
             </label>
           </div>
           {error && (
@@ -97,4 +102,5 @@ export default function Contact({
       </div>
     </>
   );
-}
+});
+export default Contact;
