@@ -31,6 +31,9 @@ const Contact = observer(() => {
   }, [request, checked]);
 
   useEffect(() => {
+    if(!request.bigAbout || !request.minAbout){
+      history.push(routes.about)
+    }
     ref.current = true;
   }, []);
   return (
@@ -63,7 +66,12 @@ const Contact = observer(() => {
             labelText={"Ваш адрес *"}
             setAllError={setError}
           />
-          <div className={styles.div_checkbox}>
+
+          <div
+            className={
+              styles.div_checkbox + ` ${(!checked && error) ? styles.errored : ""}`
+            }
+          >
             <input
               type="checkbox"
               id="politics"

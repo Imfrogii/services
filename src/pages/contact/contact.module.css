@@ -84,6 +84,14 @@
   border-radius: 10px;
 }
 
+.errored label {
+  color: red;
+}
+
+.errored input {
+  border: 2px solid red;
+}
+
 .buttons {
   display: flex;
   align-items: center;

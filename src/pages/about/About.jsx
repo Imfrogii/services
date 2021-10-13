@@ -24,7 +24,6 @@ const About = observer(() => {
     }
   };
   const handleImageChange = (e) => {
-    console.log(e.target.files);
     setEnabledFiles((prev) => [
       ...prev,
       ...Object.values(e.target.files).map((file) => URL.createObjectURL(file)),
@@ -54,7 +53,6 @@ const About = observer(() => {
           className={styles.container}
           onSubmit={sendData}
         >
-          {console.log(123, request.minAbout, 123)}
           <InputWithLabel
             value={request.minAbout}
             onChange={(val) => (request.minAbout = val)}
