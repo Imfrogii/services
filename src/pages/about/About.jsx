@@ -24,14 +24,22 @@ const About = observer(() => {
     }
   };
   const handleImageChange = (e) => {
-    setEnabledFiles((prev) => [
-      ...prev,
-      ...Object.values(e.target.files).map((file) => URL.createObjectURL(file)),
-    ]);
     request.files = e.target.files;
+    setEnabledFiles((prev) => [
+      // ...prev,
+      ...Object.values(request.files).map((file) => URL.createObjectURL(file)),
+    ]);
   };
   useEffect(() => {
     ref.current = true;
+    if (request.files.length) {
+      setEnabledFiles((prev) => [
+        // ...prev,
+        ...Object.values(request.files).map((file) =>
+          URL.createObjectURL(file)
+        ),
+      ]);
+    }
   }, []);
 
   useEffect(() => {

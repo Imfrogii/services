@@ -8,6 +8,7 @@ class RequestStore {
     name: "",
     tel: "",
     address: "",
+    files: [],
   };
 
   constructor() {

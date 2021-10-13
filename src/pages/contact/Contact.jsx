@@ -19,6 +19,12 @@ const Contact = observer(() => {
   const sendContacts = async () => {
     if (request.name && request.tel && request.address && checked) {
       await startSearch();
+      request.minAbout = "";
+      request.bigAbout = "";
+      request.name = "";
+      request.tel = "";
+      request.address = "";
+      request.files = [];
       history.push(routes.start_search);
     } else {
       setError(true);
@@ -31,8 +37,8 @@ const Contact = observer(() => {
   }, [request, checked]);
 
   useEffect(() => {
-    if(!request.bigAbout || !request.minAbout){
-      history.push(routes.about)
+    if (!request.bigAbout || !request.minAbout) {
+      history.push(routes.about);
     }
     ref.current = true;
   }, []);
@@ -69,7 +75,8 @@ const Contact = observer(() => {
 
           <div
             className={
-              styles.div_checkbox + ` ${(!checked && error) ? styles.errored : ""}`
+              styles.div_checkbox +
+              ` ${!checked && error ? styles.errored : ""}`
             }
           >
             <input
