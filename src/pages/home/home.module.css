@@ -1,12 +1,13 @@
 .containerFluid {
-  width: calc(100% - 200px);
+  width: calc(100% - 400px);
   display: flex;
   justify-content: center;
-  padding: 0px 100px 30px 100px;
+  padding: 0px 200px 30px 200px;
 }
 
 .container {
   width: 100%;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -38,13 +39,12 @@
   font-size: 30px;
   line-height: 40px;
   width: 90%;
-
 }
 
 .button {
   background: rgba(0, 148, 255, 0.78);
   border-radius: 25px;
-  padding: 15px 35px;
+  padding: 15px 55px;
   margin-top: 20px;
   margin-right: auto;
   border: none;
@@ -56,6 +56,19 @@
   cursor: pointer;
 
   color: #ffffff;
+}
+
+.needMaster {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.needMaster h4 {
+  margin-bottom: 0;
+  font-size: 25px;
 }
 
 .about_services {
@@ -168,6 +181,68 @@
   list-style-type: none;
 }
 
+.input_with_img {
+  position: relative;
+  margin-top: 20px;
+}
+
+/* .input_with_img input {
+  width: 100%;
+  padding: 7px 35px 7px 10px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 13px;
+  border: 2px solid #0094ff;
+  font-size: 17px;
+} */
+
+.input_with_img .input, .input_with_img input:disabled, .input {
+  width: 100%;
+  padding: 7px 35px 7px 10px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 13px;
+  border: 2px solid #0094ff;
+  font-size: 17px;
+  background-color: #fff;
+}
+
+.resentRequests div .input_with_img input:disabled{
+  padding: 7px 15px 7px 10px;
+
+}
+
+.input_with_img .img_block {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  top: 6px;
+  right: -45px;
+  cursor: pointer;
+}
+
+.resentRequests div .input_with_img {
+  width: 90%;
+  margin-left: 10%;
+  margin-top: 7px;
+  cursor: pointer !important;
+  z-index: 100;
+}
+.resentRequests .input_with_img input:disabled:hover{
+  cursor: pointer !important;
+}
+
+/* .button{
+  color: #fff;
+  background-color: #0094ff;
+  border: none;
+} */
+
+@media (max-width: 1300px) {
+  .containerFluid {
+    padding: 30px 100px;
+    width: calc(100% - 200px);
+  }
+}
+
 @media (max-width: 1200px) {
   .containerFluid {
     padding: 30px 50px;
@@ -206,7 +281,7 @@
 }
 
 @media (max-width: 700px) {
-  .mainInfo{
+  .mainInfo {
     font-size: 35px;
     line-height: 45px;
   }
@@ -263,5 +338,15 @@
   }
   .service {
     margin: 0 5px 10px 5px;
+  }
+   .input_with_img{
+    font-size: 13px !important;
+    width: 250px;
+  }
+  .resentRequests .input_with_img input{
+    font-size: 13px;
+  }
+  .resentRequests div .input_with_img{
+    width: 200px;
   }
 }

@@ -1,12 +1,13 @@
 .containerFluid {
-  width: calc(100% - 200px);
+  width: calc(100% - 400px);
   display: flex;
   justify-content: center;
-  padding: 30px 100px;
+  padding: 30px 200px;
 }
 
 .container {
   width: 100%;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
 }
@@ -55,10 +56,23 @@
   cursor: pointer;
 }
 
+@media (max-width: 1300px) {
+  .containerFluid {
+    padding: 30px 100px;
+    width: calc(100% - 200px);
+  }
+}
+
 @media (max-width: 1200px) {
   .containerFluid {
     padding: 30px 50px;
     width: calc(100% - 100px);
+  }
+}
+
+@media (max-width: 1000px) {
+  .container ul li{
+    display: none;
   }
 }
 

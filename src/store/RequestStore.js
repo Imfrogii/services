@@ -32,7 +32,7 @@ class RequestStore {
         data.append("description", this.request.bigAbout);
         if (this.request.files) {
           Array.from(this.request.files).forEach((file) => {
-            data.append("images", file);
+            data.append("files", file);
           });
         }
         await fetch("https://ommy.by/api/order/", {

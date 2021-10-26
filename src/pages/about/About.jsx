@@ -101,11 +101,18 @@ const About = observer(() => {
             <span style={{ color: "red", fontSize: 22 }}>Заполните поля</span>
           )}
           <div className={styles.buttons}>
-            <Link to={routes.home}>
-              <button type="button" className={styles.buttonBack}>
-                Назад
-              </button>
-            </Link>
+            <button
+              type="button"
+              className={styles.buttonBack}
+              onClick={() => {
+                request.minAbout = "";
+                request.bigAbout = "";
+                request.files = [];
+                history.push(routes.home);
+              }}
+            >
+              Назад
+            </button>
             <button type="button" className={styles.button} onClick={sendData}>
               Далее
             </button>

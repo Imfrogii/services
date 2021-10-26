@@ -1,15 +1,16 @@
 .containerFluid {
-  width: calc(100% - 200px);
+  width: calc(100% - 400px);
   height: calc(100vh - 185px);
   display: flex;
   justify-content: center;
-  padding: 30px 100px;
+  padding: 30px 200px;
   margin-top: 30px;
 }
 
 .container {
   width: 100%;
   height: 100%;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,6 +82,13 @@
   margin-bottom: 20px;
   margin-top: 20px;
   /* padding: 10px; */
+}
+
+@media (max-width: 1300px) {
+  .containerFluid {
+    padding: 30px 100px;
+    width: calc(100% - 200px);
+  }
 }
 
 @media (max-width: 1200px) {

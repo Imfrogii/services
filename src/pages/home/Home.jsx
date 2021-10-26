@@ -1,10 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Header from "../../components/header";
 import { routes } from "../../constants/routes";
 import styles from "./home.module.css";
+import RequestStore from "../../store/RequestStore";
+import { SendImg } from "../../images/images";
+import { observer } from "mobx-react";
+import AboutMainPage from "../../components/aboutMainPage";
+import AboutWork from "../../components/aboutWork";
 
-export default function Home(params) {
+// export default function Home(params) {
+const Home = observer(() => {
   const services = [
     "Сантехника",
     "Электрика",
@@ -17,6 +23,13 @@ export default function Home(params) {
     "Покраска",
     "Выездной автосервис",
   ];
+  const { request } = RequestStore;
+  const resentRequests = [
+    "Собрать шкаф",
+    "Отремонтировать стиралку",
+    "Помочь вывести сгоревший дом",
+  ];
+  const history = useHistory();
   return (
     <>
       <Helmet>
@@ -39,21 +52,31 @@ export default function Home(params) {
         <div className={styles.container}>
           <h1 className={styles.mainInfo}>
             <div className={styles.relative}>
-              Подбор мастера в сфере ремонтных и бытовых услуг
+              Самая быстрая помощь для тех, кто не откладывает на потом
             </div>
           </h1>
           <span className={styles.about}>
-            Оставьте заявку всего в пару кликов и найдите мастера уже через 15
-            минут. Выезд мастера в течение часа.
+            Оставьте заявку всего в пару кликов и мастер свяжется с вами уже
+            через 15 минут.
           </span>
 
-          <Link to={routes.about}>
-            <button type="button" className={styles.button}>
-              Оставить заявку
-            </button>
-          </Link>
+          <div className={styles.input_with_img}>
+            <input
+              type="text"
+              className={styles.input}
+              value={request.minAbout}
+              onChange={(e) => (request.minAbout = e.target.value)}
+              placeholder="В чём вам нужна помощь?"
+            />
+            <Link to={routes.about}>
+              <button type="button" className={styles.img_block}>
+                <SendImg />
+              </button>
+            </Link>
+          </div>
+
           <div className={styles.about_services}>
-            <h3>Виды услуг</h3>
+            <h3>Вам помогут с любой работой</h3>
             <ul className={styles.services}>
               {services.map((item, index) => (
                 <li key={index} className={styles.service}>
@@ -63,8 +86,59 @@ export default function Home(params) {
               <li className={styles.spread}>...</li>
             </ul>
           </div>
+
+          <div className={styles.resentRequests}>
+            <h3>Например, недавние заявки</h3>
+            <div
+              className={styles.input_with_img}
+              onClick={() => {
+                request.minAbout = "";
+                history.push(routes.about);
+              }}
+            >
+              {/* <Link to={routes.about}> */}
+              <input
+                className={styles.input}
+                placeholder="Мне нужно..."
+                disabled
+              />
+              <button type="button" className={styles.img_block}>
+                <SendImg />
+              </button>
+            </div>
+
+            {resentRequests.map((resentRequest) => (
+              <div key={resentRequest}>
+                <div
+                  className={styles.input_with_img}
+                  onClick={() => {
+                    request.minAbout = resentRequest;
+                    history.push(routes.about);
+                  }}
+                >
+                  <input
+                    className={styles.input}
+                    placeholder={resentRequest}
+                    disabled
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <AboutMainPage />
+          <AboutWork />
+          <div className={styles.needMaster}>
+            <h4>Вам нужен мастер?</h4>
+            <Link to={routes.about}>
+              <button type="button" className={styles.button}>
+                Оставить заявку
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </>
   );
-}
+});
+export default Home;
