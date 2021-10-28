@@ -56,6 +56,7 @@ const Contact = observer(() => {
             id={"name"}
             labelText={"Представьтесь, пожалуйста *"}
             setAllError={setError}
+            required
           />
           <InputWithLabel
             value={request.tel}
@@ -64,6 +65,7 @@ const Contact = observer(() => {
             labelText={"Ваш номер телефона *"}
             setAllError={setError}
             type={"tel"}
+            required
           />
           <InputWithLabel
             value={request.address}
@@ -71,6 +73,7 @@ const Contact = observer(() => {
             id={"address"}
             labelText={"Ваш адрес *"}
             setAllError={setError}
+            required
           />
 
           <div
@@ -84,6 +87,7 @@ const Contact = observer(() => {
               id="politics"
               onChange={() => setChecked((prev) => !prev)}
               value={checked}
+              required
             />
             <label htmlFor="politics">
               Я принимаю{" "}

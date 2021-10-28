@@ -8,6 +8,8 @@ class RequestStore {
     name: "",
     tel: "",
     address: "",
+    price_from: "",
+    price_to: "",
     files: [],
   };
 
@@ -34,6 +36,12 @@ class RequestStore {
           Array.from(this.request.files).forEach((file) => {
             data.append("files", file);
           });
+        }
+        if(this.request.price_from){
+          data.append('price_from', this.request.price_from)
+        }
+        if(this.request.price_to){
+          data.append('price_to', this.request.price_to)
         }
         await fetch("https://ommy.by/api/order/", {
           body: data,

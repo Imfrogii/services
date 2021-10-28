@@ -67,6 +67,7 @@ const About = observer(() => {
             id={"min_about"}
             labelText={"В чем вам нужна помощь? *"}
             setAllError={setError}
+            required
           />
           <InputWithLabel
             value={request.bigAbout}
@@ -75,7 +76,37 @@ const About = observer(() => {
             labelText={"Опишите задачу подробнее *"}
             setAllError={setError}
             isTextArea={true}
+            required
           />
+          <div className={styles.price_row}>
+            <InputWithLabel
+              value={request.price_from}
+              onChange={(val) => (request.price_from = +val)}
+              id={"price_from"}
+              type="number"
+              labelText={"Какая цена для вас приемлима"}
+              setAllError={setError}
+              placeholder={"Минимум, BYN"}
+            />
+            <InputWithLabel
+              value={request.price_to}
+              onChange={(val) => (request.price_to = +val)}
+              id={"price_to"}
+              type="number"
+              labelText={""}
+              setAllError={setError}
+              placeholder={"Максимум, BYN"}
+            />
+
+            {/* <InputWithLabel
+              value={request.price_from}
+              onChange={(val) => (request.price_from = val)}
+              id={"address"}
+              type="number"
+              labelText={"Ваш адрес *"}
+              setAllError={setError}
+            /> */}
+          </div>
           <div className={styles.inputWithLabel}>
             <label htmlFor="files">Добавьте фото</label>
             <div className={styles.files}>
