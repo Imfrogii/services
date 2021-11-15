@@ -1,52 +1,65 @@
 import { observer } from "mobx-react";
 import { useEffect, useRef, useState } from "react";
+import { ReactMediaRecorder } from "react-media-recorder";
 import { Helmet } from "react-helmet";
 import { Link, useHistory } from "react-router-dom";
 import Header from "../../components/header";
 import InputWithLabel from "../../components/inputWithLabel";
+import TextTab from "../../components/textTab";
 import { routes } from "../../constants/routes";
 import RequestStore from "../../store/RequestStore";
+
 import styles from "./about.module.css";
+import { MicroIcon, TextIcon, VideoIcon } from "../../images/images";
+import AudioTab from "../../components/audioTab";
+import VideoTab from "../../components/videoTab";
 
 // function About() {
 const About = observer(() => {
-  const fileInput = useRef();
   const history = useHistory();
-  const [enabledFiles, setEnabledFiles] = useState([]);
   const [error, setError] = useState(false);
-  const { request } = RequestStore;
-  const ref = useRef();
+  const { request, video, mode, audios } = RequestStore;
   const sendData = () => {
+    if (mode.get() === "audio") {
+      request.minAbout = " ";
+      request.bigAbout = " ";
+      request.file_type = "audio";
+    }
+    if (mode.get() === "video") {
+      request.minAbout = " ";
+      request.bigAbout = " ";
+      request.file_type = "video";
+    }
     if (request.minAbout && request.bigAbout) {
       history.push(routes.contact);
     } else {
       setError(true);
     }
   };
-  const handleImageChange = (e) => {
-    request.files = e.target.files;
-    setEnabledFiles((prev) => [
-      // ...prev,
-      ...Object.values(request.files).map((file) => URL.createObjectURL(file)),
-    ]);
-  };
-  useEffect(() => {
-    ref.current = true;
-    if (request.files.length) {
-      setEnabledFiles((prev) => [
-        // ...prev,
-        ...Object.values(request.files).map((file) =>
-          URL.createObjectURL(file)
-        ),
-      ]);
-    }
-  }, []);
 
   useEffect(() => {
     if (request.minAbout && request.bigAbout) {
       setError(false);
     }
   }, [request.minAbout && request.bigAbout]);
+
+  const buttons = [
+    {
+      name: "text",
+      img: <TextIcon />,
+      alt: "Text",
+    },
+    {
+      name: "audio",
+      img: <MicroIcon />,
+      alt: "Microphone",
+    },
+    {
+      name: "video",
+      img: <VideoIcon />,
+      alt: "Video",
+    },
+  ];
 
   return (
     <>
@@ -55,81 +68,33 @@ const About = observer(() => {
         <title>Ommy - Оформление заявки</title>
       </Helmet>
       <div className={styles.containerFluid}>
+        <div className={styles.tabs}>
+          {buttons.map((button) => (
+            <button
+              key={button.name}
+              className={`${
+                button.name === "text" ? styles.tab_button2 : styles.tab_button
+              } ${button.name === mode.get() ? styles.active : ""}`}
+              onClick={() => mode.set(button.name)}
+            >
+              {/* <img src={button.img} alt={button.alt} /> */}
+              {/* {button.icon} */}
+              {button.img}
+            </button>
+          ))}
+        </div>
         <form
           encType="multipart/form-data"
           method="post"
           className={styles.container}
           onSubmit={sendData}
         >
-          <InputWithLabel
-            value={request.minAbout}
-            onChange={(val) => (request.minAbout = val)}
-            id={"min_about"}
-            labelText={"В чем вам нужна помощь? *"}
-            setAllError={setError}
-            required
-          />
-          <InputWithLabel
-            value={request.bigAbout}
-            onChange={(val) => (request.bigAbout = val)}
-            id={"big_about"}
-            labelText={"Опишите задачу подробнее *"}
-            setAllError={setError}
-            isTextArea={true}
-            required
-          />
-          <div className={styles.price_row}>
-            <InputWithLabel
-              value={request.price_from}
-              onChange={(val) => (request.price_from = +val)}
-              id={"price_from"}
-              type="number"
-              labelText={"Какая цена для вас приемлима"}
-              setAllError={setError}
-              placeholder={"Минимум, BYN"}
-            />
-            <InputWithLabel
-              value={request.price_to}
-              onChange={(val) => (request.price_to = +val)}
-              id={"price_to"}
-              type="number"
-              labelText={""}
-              setAllError={setError}
-              placeholder={"Максимум, BYN"}
-            />
-
-            {/* <InputWithLabel
-              value={request.price_from}
-              onChange={(val) => (request.price_from = val)}
-              id={"address"}
-              type="number"
-              labelText={"Ваш адрес *"}
-              setAllError={setError}
-            /> */}
-          </div>
-          <div className={styles.inputWithLabel}>
-            <label htmlFor="files">Добавьте фото</label>
-            <div className={styles.files}>
-              <label htmlFor="files" className={styles.input_file}>
-                +
-              </label>
-              {enabledFiles.map((img) => (
-                <div key={img} className={styles.input_file}>
-                  <img src={img} alt="about" />
-                </div>
-              ))}
-              <input
-                type="file"
-                onChange={handleImageChange}
-                name="files"
-                id="files"
-                multiple
-                ref={fileInput}
-              />
-            </div>
-          </div>
-          {error && (
-            <span style={{ color: "red", fontSize: 22 }}>Заполните поля</span>
+          {mode.get() === "text" ? (
+            <TextTab error={error} setError={setError} />
+          ) : mode.get() === "audio" ? (
+            <AudioTab error={error} setError={setError} />
+          ) : (
+            <VideoTab error={error} setError={setError} />
           )}
           <div className={styles.buttons}>
             <button
@@ -139,6 +104,8 @@ const About = observer(() => {
                 request.minAbout = "";
                 request.bigAbout = "";
                 request.files = [];
+                video.set(null);
+                audios.set(null);
                 history.push(routes.home);
               }}
             >

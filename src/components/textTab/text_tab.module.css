@@ -1,7 +1,6 @@
 .containerFluid {
   width: calc(100% - 400px);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   padding: 0px 200px 30px 200px;
 }
@@ -12,59 +11,6 @@
   max-width: 1200px;
   flex-direction: column;
   align-items: center;
-}
-
-.tabs {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: center;
-}
-
-.tab_button,
-.tab_button2 {
-  background: #bebebe;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  background: rgba(190, 190, 190, 0.24);
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-}
-
-.active {
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  background: #0094ff;
-}
-
-.tab_button:nth-child(2) {
-  margin: 0 20px;
-}
-
-.tab_button svg,
-.tab_button2 svg {
-  width: 30px;
-  height: 30px;
-  /* opacity: 0.6; */
-}
-
-.tab_button path {
-  fill: rgba(0, 0, 0, 0.25);
-}
-
-.tab_button2 path {
-  stroke: rgba(0, 0, 0, 0.25);
-}
-
-.active path {
-  fill: #fff;
-}
-
-.tab_button2.active path {
-  stroke: #fff;
-  fill: none;
 }
 
 .inputWithLabel {
@@ -118,28 +64,92 @@
   margin-right: 40px;
 }
 
+.drag_drop {
+  width: 100%;
+}
+
+.inputWithLabel .row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.inputWithLabel .preview {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: -5px;
+}
+
+.preview_item {
+  position: relative;
+  border: none;
+  outline: none;
+  margin: 10px 5px;
+  /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
+}
+
+.preview_item span {
+  position: absolute;
+  right: 5px;
+  top: -5px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.preview_item:hover span {
+  color: red;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.inputWithLabel .preview img {
+  width: 70px;
+  height: 70px;
+  border-radius: 5px;
+  cursor: pointer;
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.inputWithLabel .additional {
+  margin-top: 20px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.62);
+}
+
 .inputWithLabel .input_file {
-  width: 60px;
-  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* padding: 2px; */
-  background: #ffffff;
-  border: 2px solid #0094ff;
+  width: 250px;
+  background: rgba(0, 148, 255, 0.78);
+  border: 3px solid #0094ff;
   box-sizing: border-box;
-  border-radius: 10px;
-  color: #0094ff;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 40px;
-  line-height: 85px;
-  cursor: pointer;
-  margin-right: 5px;
-  overflow: hidden;
+  border-radius: 25px;
+  padding: 13px 25px;
+  font-size: 18px;
+  color: #ffffff;
+  line-height: 10px;
+  white-space: nowrap;
   margin: 0;
-  margin-right: 10px;
+  margin-right: 40px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.input_file svg {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  /* border-radius: 25px; */
+}
+
+.inputWithLabel .row span {
+  margin-left: 10%;
+  font-weight: 500;
+  font-size: 20px;
+  /* margin-left: 20%; */
 }
 
 .files {
@@ -147,12 +157,6 @@
   flex-wrap: wrap;
   width: 100%;
   align-items: center;
-}
-
-.input_file img {
-  width: 100%;
-  height: 100%;
-  /* border-radius: 25px; */
 }
 
 .inputWithLabel input[type="file"] {
@@ -237,10 +241,17 @@
     font-size: 20px;
     line-height: 35px;
   }
-  .inputWithLabel .input_file {
-    width: 70px;
-    height: 70px;
-    font-size: 50px;
+  @media (max-width: 700px) {
+    .row {
+      flex-direction: column;
+    }
+    .row .input_file{
+      margin: 0;
+    }
+    .drag_drop .row span{
+      margin-left: 0;
+      margin: 15px auto 0 auto;
+    }
   }
 }
 
@@ -261,9 +272,5 @@
   .inputWithLabel label {
     font-size: 16px;
     line-height: 20px;
-  }
-  .inputWithLabel .input_file {
-    border-width: 2px;
-    border-radius: 15px;
   }
 }

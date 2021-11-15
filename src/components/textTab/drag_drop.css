@@ -1,0 +1,19 @@
+.file-drop-target {
+  display: flex;
+  flex-direction: column;
+  background: rgba(190, 190, 190, 0.2);
+  border: 2px dashed #0094ff;
+  box-sizing: border-box;
+  border-radius: 25px;
+  width: 100%;
+  padding: 30px;
+}
+
+.file-drop-target.file-drop-dragging-over-frame {
+  box-shadow: 0 0 1px 3px #0095ff29;
+}
+
+.file-drop-target.file-drop-dragging-over-target {
+  box-shadow: 0 0 2px 5px #0095ff29;
+  border: 2px solid #0094ff;
+}

@@ -4,7 +4,7 @@ import Header from "../../components/header";
 import { routes } from "../../constants/routes";
 import styles from "./home.module.css";
 import RequestStore from "../../store/RequestStore";
-import { SendImg } from "../../images/images";
+import { MicroIcon, SendImg, VideoIcon } from "../../images/images";
 import { observer } from "mobx-react";
 import AboutMainPage from "../../components/aboutMainPage";
 import AboutWork from "../../components/aboutWork";
@@ -23,7 +23,8 @@ const Home = observer(() => {
     "Покраска",
     "Выездной автосервис",
   ];
-  const { request } = RequestStore;
+  const { request, mode } = RequestStore;
+
   const resentRequests = [
     "Собрать шкаф",
     "Отремонтировать стиралку",
@@ -59,18 +60,39 @@ const Home = observer(() => {
             Оставьте заявку всего в пару кликов и мастер свяжется с вами уже
             через 15 минут.
           </span>
-
-          <div className={styles.input_with_img}>
-            <input
-              type="text"
-              className={styles.input}
-              value={request.minAbout}
-              onChange={(e) => (request.minAbout = e.target.value)}
-              placeholder="В чём вам нужна помощь?"
-            />
+          <div className={styles.request_type}>
+            <div className={styles.input_with_img}>
+              <input
+                type="text"
+                className={styles.input}
+                value={request.minAbout}
+                onChange={(e) => (request.minAbout = e.target.value)}
+                placeholder="В чём вам нужна помощь?"
+              />
+              <Link to={routes.about}>
+                <button type="button" className={styles.img_block}>
+                  <SendImg />
+                </button>
+              </Link>
+            </div>
             <Link to={routes.about}>
-              <button type="button" className={styles.img_block}>
-                <SendImg />
+              <button
+                type="button"
+                className={styles.img_block}
+                onClick={() => mode.set("audio")}
+              >
+                <MicroIcon />
+                <span>Голосовая заявка</span>
+              </button>
+            </Link>
+            <Link to={routes.about}>
+              <button
+                type="button"
+                className={styles.img_block}
+                onClick={() => mode.set("video")}
+              >
+                <VideoIcon />
+                <span>Видео заявка</span>
               </button>
             </Link>
           </div>

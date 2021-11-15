@@ -23,10 +23,9 @@
   /* margin-top: 5px; */
   color: #ff4040;
 }
-.inputWithLabel .error{
+.inputWithLabel .error {
   margin-top: 5px;
   color: #ff4040;
-
 }
 
 .inputWithLabel input,
@@ -48,8 +47,16 @@
   width: 100%;
   padding: 10px 10px;
   height: 250px;
+  margin-right: 10px;
   resize: none;
   font-size: 16px;
+}
+
+.inputWithLabel .textarea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 @media (max-width: 950px) {
@@ -76,7 +83,7 @@
     font-size: 17px;
     padding: 7px 10px;
   }
-  .inputWithLabel .error{
+  .inputWithLabel .error {
     font-size: 15px;
   }
 }
@@ -92,7 +99,7 @@
     border-width: 2px;
     border-radius: 15px;
   }
-  .inputWithLabel .error{
+  .inputWithLabel .error {
     font-size: 13px;
   }
 }
