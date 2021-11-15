@@ -74,7 +74,7 @@ const VideoTab = observer(({ error, setError }) => {
           onChange={(val) => (request.price_from = +val)}
           id={"price_from"}
           type="number"
-          labelText={"Какая цена для вас приемлима"}
+          labelText={"Какая цена для вас приемлема"}
           setAllError={setError}
           placeholder={"Минимум, BYN"}
         />
