@@ -28,6 +28,7 @@ export default function Politics() {
             использования сайта ommy.by (а также его субдоменов), его программ и
             его продуктов.
           </p>
+          <a href="https://oauth.vk.com/authorize?client_id=8002878">click</a>
 
           <h2>1. Определение терминов</h2>
 
