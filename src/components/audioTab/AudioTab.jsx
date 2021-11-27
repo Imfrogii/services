@@ -8,6 +8,7 @@ import {
   MoneyIcon,
   OkIcon,
   SecurityIcon,
+  StopIcon,
   TimeIcon,
 } from "../../images/images";
 import RequestStore from "../../store/RequestStore";
@@ -82,7 +83,7 @@ const AudioTab = observer(({ error, setError }) => {
         className={`${styles.start_button} ${isRecording ? styles.active : ""}`}
         onClick={isRecording ? stopRecording : startRecording}
       >
-        <MicroIcon />
+        {isRecording ? <StopIcon /> : <MicroIcon />}
       </button>
       {audio ? (
         <div className={styles.audio_div}>

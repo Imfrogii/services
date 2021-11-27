@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import Header from "../../components/header";
 import InputWithLabel from "../../components/inputWithLabel";
+import Loader from "../../components/loader";
 import { routes } from "../../constants/routes";
 import RequestStore from "../../store/RequestStore";
 import styles from "./contact.module.css";
@@ -12,12 +13,14 @@ import styles from "./contact.module.css";
 const Contact = observer(() => {
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
   const ref = useRef();
   const { request, startSearch } = RequestStore;
   const history = useHistory();
 
   const sendContacts = async () => {
     if (request.name && request.tel && request.address && checked) {
+      setIsFetching(true);
       await startSearch();
       request.minAbout = "";
       request.bigAbout = "";
@@ -25,6 +28,7 @@ const Contact = observer(() => {
       request.tel = "";
       request.address = "";
       request.files = [];
+      setIsFetching(false);
       history.push(routes.start_search);
     } else {
       setError(true);
@@ -119,6 +123,7 @@ const Contact = observer(() => {
           </div>
         </div>
       </div>
+      {isFetching ? <Loader /> : ""}
     </>
   );
 });

@@ -38,6 +38,10 @@ const About = observer(() => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     if (request.minAbout && request.bigAbout) {
       setError(false);
     }
@@ -50,14 +54,14 @@ const About = observer(() => {
       alt: "Text",
     },
     {
-      name: "audio",
-      img: <MicroIcon />,
-      alt: "Microphone",
-    },
-    {
       name: "video",
       img: <VideoIcon />,
       alt: "Video",
+    },
+    {
+      name: "audio",
+      img: <MicroIcon />,
+      alt: "Microphone",
     },
   ];
 

@@ -260,7 +260,7 @@
 }
 
 .request_type > a .img_block:hover {
-  width: 170px;
+  width: 200px;
   border-radius: 25px;
   padding: 0 17px;
 }
@@ -269,6 +269,7 @@
   width: unset;
   opacity: 1;
   margin-left: 10px;
+  font-size: 17px;
   white-space: nowrap;
   color: #fff;
   text-decoration: none;
@@ -373,7 +374,7 @@
     margin-top: 10px;
   }
   .request_type > a .img_block {
-    width: 170px;
+    width: 200px;
     border-radius: 25px;
     padding: 0 17px;
   }
@@ -382,6 +383,7 @@
     width: unset;
     opacity: 1;
     margin-left: 10px;
+    font-size: 17px;
     white-space: nowrap;
     color: #fff;
     text-decoration: none;

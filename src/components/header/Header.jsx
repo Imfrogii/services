@@ -1,8 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { routes } from "../../constants/routes";
 import styles from "./header.module.css";
 
-export default function Header(params) {
+export default function Header({ benefitsRef, howWorksRef }) {
+  const history = useHistory();
+  const executeScroll = (ref) => {
+    if (window.location.pathname !== routes.home) {
+      history.push(routes.home);
+    } else {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className={styles.containerFluid}>
       <div className={styles.container}>
@@ -13,10 +21,20 @@ export default function Header(params) {
         </Link>
         <ul className={styles.navbar}>
           <li>
-            <Link to={routes.aboutUs}>Преимущества</Link>
+            <button
+              onClick={() => executeScroll(benefitsRef)}
+              to={routes.aboutUs}
+            >
+              Преимущества
+            </button>
           </li>
           <li>
-            <Link to={routes.aboutUs}>Как мы работаем?</Link>
+            <button
+              onClick={() => executeScroll(howWorksRef)}
+              to={routes.aboutUs}
+            >
+              Как мы работаем?
+            </button>
           </li>
           <li>
             <Link to={routes.aboutUs}>Мастера и Условия</Link>

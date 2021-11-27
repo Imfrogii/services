@@ -1,9 +1,10 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { routes } from "../../constants/routes";
 import { MoneyIcon, OkIcon, SecurityIcon, TimeIcon } from "../../images/images";
 import styles from "./aboutMainPage.module.css";
 
-export default function AboutMainPage(params) {
+const AboutMainPage = React.forwardRef((props, ref) => {
   const blocks = [
     {
       name: "Вы сэкономите Время",
@@ -30,7 +31,7 @@ export default function AboutMainPage(params) {
     },
   ];
   return (
-    <div className={styles.containerFluid}>
+    <div className={styles.containerFluid} ref={ref}>
       <div className={styles.container}>
         <div className={styles.head}>
           <h2>Почему вам стоит оставить у нас заявку?</h2>
@@ -61,4 +62,6 @@ export default function AboutMainPage(params) {
       </div>
     </div>
   );
-}
+});
+
+export default AboutMainPage;

@@ -111,6 +111,7 @@
 }
 
 .start_button svg {
+  margin-left: 1px;
   height: 60px;
   width: 60px;
   fill: #fff;

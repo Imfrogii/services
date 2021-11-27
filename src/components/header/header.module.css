@@ -50,6 +50,15 @@
   color: inherit;
 }
 
+.container ul li button {
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
+
 .container ul li:hover {
   border-bottom: 2px solid #0094ff;
   color: #0094ff;
@@ -71,13 +80,13 @@
 }
 
 @media (max-width: 1000px) {
-  .container ul li{
+  .container ul li {
     display: none;
   }
 }
 
 @media (max-width: 700px) {
-  .containerFluid{
+  .containerFluid {
     padding: 30px 50px 0 50px;
   }
   .container ul li {
@@ -91,7 +100,7 @@
 }
 
 @media (max-width: 550px) {
-  .containerFluid{
+  .containerFluid {
     padding: 30px 20px 0 20px;
     width: calc(100% - 40px);
   }

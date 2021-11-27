@@ -19,6 +19,9 @@
 }
 
 .start_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(0, 148, 255, 0.78);
   border: 1px solid rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
@@ -42,13 +45,12 @@
   margin: 20px 0px 30px 0px;
 }
 
-
 .audio {
   display: flex;
   margin-right: 20px;
 }
 
-.delete_audio{
+.delete_audio {
   background: rgba(0, 148, 255, 0.78);
   border: 1px solid rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
@@ -62,7 +64,16 @@
 }
 
 .start_button.active {
+  background: transparent;
+  border: 3px solid #0094ff;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   animation: pulse 2s infinite;
+}
+
+.start_button.active svg{
+  height: 50px;
+  width: 50px;
 }
 
 @-webkit-keyframes pulse {
@@ -112,6 +123,7 @@
   height: 60px;
   width: 60px;
   fill: #fff;
+  margin-left: 1px;
 }
 
 .text {
@@ -141,8 +153,8 @@
   margin-right: 40px;
 }
 
-@media (max-width: 410px){
-  .audio{
+@media (max-width: 410px) {
+  .audio {
     width: 220px;
   }
 }

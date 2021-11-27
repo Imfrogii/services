@@ -8,6 +8,7 @@ import { MicroIcon, SendImg, VideoIcon } from "../../images/images";
 import { observer } from "mobx-react";
 import AboutMainPage from "../../components/aboutMainPage";
 import AboutWork from "../../components/aboutWork";
+import { useEffect, useRef } from "react";
 
 // export default function Home(params) {
 const Home = observer(() => {
@@ -31,6 +32,15 @@ const Home = observer(() => {
     "Помочь вывести сгоревший дом",
   ];
   const history = useHistory();
+
+  const benefitsRef = useRef(null);
+  const howWorksRef = useRef(null);
+  // const masters = useRef(null)
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -48,7 +58,7 @@ const Home = observer(() => {
           content="бытовые косметические услуги, бытовые услуги, бытовые услуги в городе, бытовые услуги каждому, бытовые услуги населению, бытовые услуги производственные услуги, бытовые услуги ремонт, бытовые услуги цена, доступные бытовые услуги, коммунально бытовые услуги, компании оказывающие бытовые услуги, компания бытовых услуг, мастера бытовых услуг, мелкие бытовые услуги, оказание бытовых услуг, оказание бытовых услуг населению, оказание мелких бытовых услуг, оказание социально бытовых услуг, оказываем бытовые услуги, организации бытовые услуги, предоставление бытовых услуг, работа бытовые услуги, социально бытовые услуги, услуги +по вывозу бытовых отходов, услуги бытовая техника, услуги бытового обслуживания, услуги мелкого бытового ремонта, услуги ремонта бытовой техники, фирмы бытовых услуг, центр бытовых услуг"
         />
       </Helmet>
-      <Header />
+      <Header benefitsRef={benefitsRef} howWorksRef={howWorksRef} />
       <div className={styles.containerFluid}>
         <div className={styles.container}>
           <h1 className={styles.mainInfo}>
@@ -148,8 +158,8 @@ const Home = observer(() => {
             ))}
           </div>
 
-          <AboutMainPage />
-          <AboutWork />
+          <AboutMainPage ref={benefitsRef} />
+          <AboutWork ref={howWorksRef} />
           <div className={styles.needMaster}>
             <h4>Вам нужен мастер?</h4>
             <Link to={routes.about}>

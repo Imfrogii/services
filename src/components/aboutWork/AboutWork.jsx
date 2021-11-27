@@ -1,8 +1,10 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { routes } from "../../constants/routes";
 import styles from "./aboutWork.module.css";
 
-export default function AboutWork(params) {
+// export default function AboutWork(params) {
+const AboutWork = React.forwardRef((props, ref) => {
   const blocks = [
     {
       name: "1. Вы оставляете заявку",
@@ -31,7 +33,7 @@ export default function AboutWork(params) {
     },
   ];
   return (
-    <div className={styles.containerFluid}>
+    <div className={styles.containerFluid} ref={ref}>
       <div className={styles.container}>
         <h2>Как мы работаем?</h2>
         <div className={styles.blocks}>
@@ -69,4 +71,6 @@ export default function AboutWork(params) {
       </div>
     </div>
   );
-}
+});
+
+export default AboutWork;

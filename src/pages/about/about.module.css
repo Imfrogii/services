@@ -23,6 +23,9 @@
 
 .tab_button,
 .tab_button2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #bebebe;
   border-radius: 50%;
   width: 60px;
@@ -40,13 +43,14 @@
 }
 
 .tab_button:nth-child(2) {
-  margin: 0 20px;
+  margin: 0 40px;
 }
 
 .tab_button svg,
 .tab_button2 svg {
   width: 30px;
   height: 30px;
+  margin-left: 1px;
   /* opacity: 0.6; */
 }
 

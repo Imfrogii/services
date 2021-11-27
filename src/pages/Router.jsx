@@ -6,27 +6,12 @@ import About from "./about";
 import Home from "./home";
 import Contact from "./contact";
 import AboutUs from "./aboutUs";
-import Finding from "./Finding";
-import Politics from "./politics/Politics";
-import RequestStore from "../store/RequestStore";
+import Finding from "./finding";
+import Politics from "./politics";
 // init("user_6jARMg7P8wTNLTtJh1WLZ");
 
 export default function Router() {
-  const {startSearch} = RequestStore;
-  // const [minAbout, setMinAbout] = useState("");
-  // const [bigAbout, setBigAbout] = useState("");
-
-  // const [name, setName] = useState("");
-  // const [tel, setTel] = useState("");
-  // const [address, setAddress] = useState("");
   const history = useHistory();
-
-  const [files, setFiles] = useState(null);
-  const sendEmail = async () => {
-    await 
-    history.push(routes.start_search);
-   
-  };
 
   return (
     <Switch>
@@ -34,27 +19,13 @@ export default function Router() {
         <Home />
       </Route>
       <Route path={routes.about} exact>
-        <About
-          // minAbout={minAbout}
-          // setMinAbout={setMinAbout}
-          // bigAbout={bigAbout}
-          // setBigAbout={setBigAbout}
-          setFiles={setFiles}
-        />
+        <About />
       </Route>
       <Route path={routes.politics} exact>
         <Politics />
       </Route>
       <Route path={routes.contact} exact>
-        <Contact
-          // name={name}
-          // setName={setName}
-          // tel={tel}
-          // setTel={setTel}
-          // address={address}
-          // setAddress={setAddress}
-          sendEmail={sendEmail}
-        />
+        <Contact />
       </Route>
       <Route path={routes.aboutUs} exact>
         <AboutUs />
