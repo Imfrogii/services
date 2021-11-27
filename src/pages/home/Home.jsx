@@ -67,7 +67,7 @@ const Home = observer(() => {
             </div>
           </h1>
           <span className={styles.about}>
-            Оставьте заявку всего в пару кликов и мастер свяжется с вами уже
+            Оставьте заявку всего в пару кликов, и мастер свяжется с вами уже
             через 15 минут.
           </span>
           <div className={styles.request_type}>

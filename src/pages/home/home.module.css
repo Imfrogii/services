@@ -435,4 +435,7 @@
   .resentRequests div .input_with_img {
     width: 200px;
   }
+  .resentRequests > .input_with_img input:disabled {
+    padding: 10px 35px 10px 10px;
+  }
 }

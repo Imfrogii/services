@@ -142,7 +142,7 @@
   }
   .button {
     padding: 15px 40px;
-    font-size: 20px;
+    /* font-size: 20px; */
     line-height: 25px;
   }
 }
@@ -159,5 +159,25 @@
     width: 100%;
     margin-left: 0;
     margin-right: 0;
+    margin: 20px 10px;
+  }
+
+  .button {
+    padding: 10px 30px;
+    font-size: 16px;
+    line-height: 20px;
+    white-space: nowrap;
+  }
+
+  .block svg {
+    width: 70px;
+    height: 70px;
+  }
+
+  .block h4 {
+    font-size: 17px;
+  }
+  .block span {
+    font-size: 14px;
   }
 }
