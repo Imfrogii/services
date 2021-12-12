@@ -18,6 +18,7 @@ import "./drag_drop.css";
 
 const TextTab = observer(({ error, setError }) => {
   const { request } = RequestStore;
+  const options = ['123', '234', '5234', '432'];
   const [enabledFiles, setEnabledFiles] = useState([]);
   const fileInput = useRef();
   const ref = useRef();
@@ -108,6 +109,16 @@ const TextTab = observer(({ error, setError }) => {
         id={"min_about"}
         labelText={"В чем вам нужна помощь? *"}
         setAllError={setError}
+        required
+      />
+      <InputWithLabel
+        value={request.workSphere}
+        onChange={(val) => (request.workSphere = val)}
+        id={"workSphere"}
+        labelText={"Выберите категорию услуги *"}
+        additionalLabelText="Это важно для правильного подбора мастера"
+        setAllError={setError}
+        options={options}
         required
       />
       <InputWithLabel

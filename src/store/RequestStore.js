@@ -4,6 +4,7 @@ import { computedFn } from "mobx-utils";
 class RequestStore {
   request = {
     minAbout: "",
+    workSphere: "",
     bigAbout: "",
     name: "",
     tel: "",

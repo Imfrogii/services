@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { routes } from "../../constants/routes";
+import SelectWithSearch from "../selectWithSearch/SelectWithSearch";
 import styles from "./input.module.css";
 
 export default function InputWithLabel({
@@ -9,8 +10,10 @@ export default function InputWithLabel({
   id,
   isTextArea,
   labelText,
+  additionalLabelText,
   setAllError,
   type,
+  options,
   required,
   placeholder,
 }) {
@@ -33,6 +36,7 @@ export default function InputWithLabel({
       >
         {labelText}
       </label>
+      {additionalLabelText ? <span>{additionalLabelText}</span> : ""}
       {isTextArea ? (
         <textarea
           type="text"
@@ -42,6 +46,8 @@ export default function InputWithLabel({
           className={error ? styles.errored : styles.input}
           placeholder={placeholder}
         />
+      ) : options ? (
+        <SelectWithSearch options={options} />
       ) : (
         <input
           type={type ? type : "text"}
