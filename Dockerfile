@@ -6,6 +6,7 @@ COPY ./package.json ./
 COPY ./yarn.lock ./
 RUN yarn
 COPY . .
+RUN npx browserslist@latest --update-db
 RUN yarn build
 
 CMD serve -s /app/build
