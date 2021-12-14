@@ -6,7 +6,7 @@ import About from "./about";
 import Home from "./home";
 import Contact from "./contact";
 import AboutUs from "./aboutUs";
-import Finding from "./finding";
+import Finding from "./Finding";
 import Politics from "./politics";
 // init("user_6jARMg7P8wTNLTtJh1WLZ");
 
